@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datos de Pago</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      color: #333;
+      text-align: center;
+      padding: 40px;
+    }
+    .card {
+      background: white;
+      max-width: 400px;
+      margin: auto;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #222;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .mensaje {
+      margin-top: 15px;
+      font-size: 16px;
+      color: green;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>💳 Datos de Transferencia</h2>
+    <p><strong>Banco:</strong> BANCO EJEMPLO</p>
+    <p><strong>Titular:</strong> Juan Pérez</p>
+    <p><strong>Número de cuenta:</strong> <span id="cuenta">1234567890</span></p>
+    <button onclick="copiar()">📋 Copiar número de cuenta</button>
+    <p class="mensaje" id="mensaje">✅ Número copiado</p>
+  </div>
+
+  <script>
+    function copiar() {
+      const cuenta = document.getElementById("cuenta").innerText;
+      navigator.clipboard.writeText(cuenta).then(() => {
+        document.getElementById("mensaje").style.display = "block";
+        setTimeout(() => {
+          document.getElementById("mensaje").style.display = "none";
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
